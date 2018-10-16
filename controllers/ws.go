@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"github.com/astaxie/beego"
+    "github.com/astaxie/beego"
     "hello/models"
     "log"
     "fmt"
@@ -43,7 +43,7 @@ func (c *WsController) Get() {
 		err := ws.ReadJSON(&msg)
 
 		if err != nil {
-			name := sess.Get("loginUser")
+		    name := sess.Get("loginUser")
 		    msg:= models.Message{Type : "quit", Client_name:name.(string), Client_img:"" , Content:"退出了聊天室"}   
 		    broadcast <- msg
 		    sess.Delete("loginuser") 
@@ -70,10 +70,10 @@ func (c *WsController) Get() {
             }
             
       
-			name := sess.Get("loginUser")
+		name := sess.Get("loginUser")
 	        fmt.Println("session2:",name.(string))
-		    fmt.Println("类型 名称",msg)
-		}
+		fmt.Println("类型 名称",msg)
+	}
 
       
     }
